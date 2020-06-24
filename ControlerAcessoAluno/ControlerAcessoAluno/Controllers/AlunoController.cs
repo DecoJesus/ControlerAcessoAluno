@@ -148,6 +148,47 @@ namespace ControlerAcessoAluno.Controllers
         }
 
 
+        //Essa é a View que vai dá origem ao campo do Acesso Via RM, aonde o Aluno caso esqueça o crachá com com QRCode ou Code de Barra, 
+        //ele é digitar o seu RM nesse campo que será gerado na "IndexRM"
+
+        //GET: Aluno/IndexRM
+        public ActionResult IndexRM()
+        {
+
+            return View();
+        }
+
+
+        //Essa View vai fazer uma busca no banco quando aluno digitar seu RM
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult BuscarRM(TB_ALUNO tB_ALUNO)
+        {
+
+
+
+            //   if (rm == null)
+
+            //   {
+
+            //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            // }
+
+            var aluno = db.TB_ALUNO.Where(a => a.RM == tB_ALUNO.RM).FirstOrDefault();
+
+            if (aluno == null)
+
+            {
+                return HttpNotFound();
+
+            }
+
+            return Json(new { nome = aluno.NOME }, JsonRequestBehavior.AllowGet);
+
+
+        }
+
 
 
         protected override void Dispose(bool disposing)
