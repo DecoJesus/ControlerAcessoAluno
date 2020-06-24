@@ -11,11 +11,17 @@ namespace ControlerAcessoAluno.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class TB_AUTORIZACAO
     {
+        [Key]
         public int COD_AUTORIZACAO { get; set; }
+
+        [Required(ErrorMessage ="Obrigatório digitar o Nome do Responsável")]
         public string NOME_RESPONSAVEL { get; set; }
+        [Required(ErrorMessage =" Obrigatório digitar o Seu RG")]
         public string RG { get; set; }
         public System.DateTime DATA { get; set; }
         public System.TimeSpan HORA { get; set; }
