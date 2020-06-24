@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutorizacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TurmaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,6 +240,11 @@
     <Content Include="Views\Autorizacao\Details.cshtml" />
     <Content Include="Views\Autorizacao\Edit.cshtml" />
     <Content Include="Views\Autorizacao\Index.cshtml" />
+    <Content Include="Views\Turma\Create.cshtml" />
+    <Content Include="Views\Turma\Delete.cshtml" />
+    <Content Include="Views\Turma\Details.cshtml" />
+    <Content Include="Views\Turma\Edit.cshtml" />
+    <Content Include="Views\Turma\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
