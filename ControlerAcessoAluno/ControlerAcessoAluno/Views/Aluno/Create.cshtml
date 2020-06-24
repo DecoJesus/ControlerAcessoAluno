@@ -1,4 +1,4 @@
-﻿@model ControlerAcessoAluno.Models.TB_ALUNO
+﻿@model ControlerAcessoAluno.Models.MatriculaAluno
 
 @{
     ViewBag.Title = "Create";
@@ -6,10 +6,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>TB_ALUNO</h4>
         <hr />
@@ -38,11 +38,24 @@
             </div>
         </div>
 
+        <!--Caixa com opções de escolher o Genêro (RAdioBUTTON)-->
         <div class="form-group">
-            @Html.LabelFor(model => model.SEXO, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("SELECIONE O SEXO", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SEXO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SEXO, "", new { @class = "text-danger" })
+                @Html.RadioButton("SEXO", "M", new { htmlAttributes = new { @class = "form-control" } }) Masculino
+                @Html.RadioButton("SEXO", "F", new { htmlAttributes = new { @class = "form-control" } }) Feminino
+
+            </div>
+        </div>
+        <!--Metodo pra criar uma checkbox pra unir a tabela turma junto no formulário cadastro de Aluno
+            Aqui está a montagem do COMBOBOX com a lista da TURMAS -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.COD_TURMA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.COD_TURMA, new SelectList(ViewBag.Turmas, "Value","Text"),
+                  new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.COD_TURMA, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
@@ -57,3 +70,8 @@
 <div>
     @Html.ActionLink("Voltar Para Lista de Alunos Cadastrados", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
