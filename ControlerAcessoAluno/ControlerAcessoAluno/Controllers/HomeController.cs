@@ -78,7 +78,7 @@ namespace ControlerAcessoAluno.Controllers
                             /*código abaixo cria uma session para armazenar o sobrenome do usuário*/
                             Session["Sobrenome"] = vLogin.SOBRENOME;
                             /*retorna para a tela inicial do Home*/
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Index", "Turma");
                         }
                         /*Else responsável da validação da senha*/
                         else

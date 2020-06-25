@@ -48,7 +48,7 @@ namespace ControlerAcessoAluno.Controllers
             var Turmas = db.TB_TURMA.Select(t => new SelectListItem
             {
                 Value = t.COD_TURMA + "",
-                Text = t.TB_CURSO.NOME_CURSO.Substring(0, 3) + t.SERIE + t.PERIODO.Substring(0, 1)
+                Text = t.COD_TURMA + "-" + t.TB_CURSO.NOME_CURSO.Substring(0, 3) + t.SERIE + t.PERIODO.Substring(0, 1)
             });
             ViewBag.Turmas = Turmas;
 
@@ -142,6 +142,8 @@ namespace ControlerAcessoAluno.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TB_ALUNO tB_ALUNO = db.TB_ALUNO.Find(id);
+             tB_ALUNO.TB_ALUNO_TURMA.Clear(); //esse comando autoriza excluir um aluno pois sem esse comando 
+                                             //não estava conseguindo por causa da FK_aluno3 na tabela Aluno_Turma não estava permitindo
             db.TB_ALUNO.Remove(tB_ALUNO);
             db.SaveChanges();
             return RedirectToAction("Index");
