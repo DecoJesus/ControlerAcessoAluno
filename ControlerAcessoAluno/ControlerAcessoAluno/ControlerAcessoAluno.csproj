@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AcessoController.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
     <Compile Include="Controllers\AutorizacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -255,6 +256,11 @@
     <Content Include="Views\Aluno\Edit.cshtml" />
     <Content Include="Views\Aluno\Index.cshtml" />
     <Content Include="Views\Aluno\IndexRM.cshtml" />
+    <Content Include="Views\Acesso\Create.cshtml" />
+    <Content Include="Views\Acesso\Delete.cshtml" />
+    <Content Include="Views\Acesso\Details.cshtml" />
+    <Content Include="Views\Acesso\Edit.cshtml" />
+    <Content Include="Views\Acesso\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

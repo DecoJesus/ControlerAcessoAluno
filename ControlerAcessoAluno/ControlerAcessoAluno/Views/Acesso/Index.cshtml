@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ControlerAcessoAluno.Models.TB_ACESSO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DATA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HORA_ENTRADA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HORA_SAIDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_ALUNO.NOME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HORA_ENTRADA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HORA_SAIDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TB_ALUNO.NOME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.COD_ACESSO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.COD_ACESSO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.COD_ACESSO })
+        </td>
+    </tr>
+}
+
+</table>
