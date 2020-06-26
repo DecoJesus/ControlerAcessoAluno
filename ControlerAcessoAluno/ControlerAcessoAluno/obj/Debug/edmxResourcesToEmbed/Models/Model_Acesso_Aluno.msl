@@ -12,17 +12,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TB_ALUNO">
-      <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_ALUNO">
-        <MappingFragment StoreEntitySet="TB_ALUNO">
-          <ScalarProperty Name="COD_ALUNO" ColumnName="COD_ALUNO" />
-          <ScalarProperty Name="NOME" ColumnName="NOME" />
-          <ScalarProperty Name="RM" ColumnName="RM" />
-          <ScalarProperty Name="DATA_NASCIMENTO" ColumnName="DATA_NASCIMENTO" />
-          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TB_ALUNO_TURMA">
       <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_ALUNO_TURMA">
         <MappingFragment StoreEntitySet="TB_ALUNO_TURMA">
@@ -65,18 +54,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TB_TURMA">
-      <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_TURMA">
-        <MappingFragment StoreEntitySet="TB_TURMA">
-          <ScalarProperty Name="COD_TURMA" ColumnName="COD_TURMA" />
-          <ScalarProperty Name="SERIE" ColumnName="SERIE" />
-          <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
-          <ScalarProperty Name="HORA_ENTRADA" ColumnName="HORA_ENTRADA" />
-          <ScalarProperty Name="HORA_SAIDA" ColumnName="HORA_SAIDA" />
-          <ScalarProperty Name="COD_CURSO" ColumnName="COD_CURSO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TB_USUARIO">
       <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_USUARIO">
         <MappingFragment StoreEntitySet="TB_USUARIO">
@@ -88,6 +65,31 @@
           <ScalarProperty Name="COD_CARGO" ColumnName="COD_CARGO" />
           <ScalarProperty Name="PERFIL" ColumnName="PERFIL" />
           <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ALUNO">
+      <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_ALUNO">
+        <MappingFragment StoreEntitySet="TB_ALUNO">
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="DATA_NASCIMENTO" ColumnName="DATA_NASCIMENTO" />
+          <ScalarProperty Name="RM" ColumnName="RM" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="COD_ALUNO" ColumnName="COD_ALUNO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TURMA">
+      <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_TURMA">
+        <MappingFragment StoreEntitySet="TB_TURMA">
+          <ScalarProperty Name="NOME_TURMA" ColumnName="NOME_TURMA" />
+          <ScalarProperty Name="COD_CURSO" ColumnName="COD_CURSO" />
+          <ScalarProperty Name="HORA_SAIDA" ColumnName="HORA_SAIDA" />
+          <ScalarProperty Name="HORA_ENTRADA" ColumnName="HORA_ENTRADA" />
+          <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+          <ScalarProperty Name="SERIE" ColumnName="SERIE" />
+          <ScalarProperty Name="COD_TURMA" ColumnName="COD_TURMA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

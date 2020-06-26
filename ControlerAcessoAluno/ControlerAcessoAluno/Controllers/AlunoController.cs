@@ -60,7 +60,7 @@ namespace ControlerAcessoAluno.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "COD_ALUNO,NOME,RM,DATA_NASCIENTO,SEXO")] TB_ALUNO tB_ALUNO)
+        //public ActionResult Create([Bind(Include = "COD_ALUNO,NOME,RM,DATA_NASCIENTO,SEXO,SENHA")] TB_ALUNO tB_ALUNO)
         public ActionResult Create(MatriculaAluno matricula)//vai pegar os dados que estão inseridos na classe MatriculaAluno
         {
 
@@ -110,7 +110,7 @@ namespace ControlerAcessoAluno.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "COD_ALUNO,NOME,RM,DATA_NASCIMENTO,SEXO")] TB_ALUNO tB_ALUNO)
+        public ActionResult Edit([Bind(Include = "COD_ALUNO,NOME,RM,DATA_NASCIMENTO,SEXO,SENHA")] TB_ALUNO tB_ALUNO)
         {
             if (ModelState.IsValid)
             {

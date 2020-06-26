@@ -16,9 +16,10 @@ namespace ControlerAcessoAluno.Models
         public string RM { get; set; } 
 
 
-        [DataType(DataType.Date)]       // Com esse formato eu não precisarei digitar a data apena escolho a data em um calendário e com essa formatação também não pegaremos a hora somente a data
+        [DataType(DataType.Date)]     // Com esse formato eu não precisarei digitar a data apena escolho a data em um calendário e com essa formatação também não pegaremos a hora somente a data
         public DateTime DATA_NASCIMENTO { get; set; }
         public string SEXO { get; set; }
+        public string SENHA { get; set; }
         public int COD_TURMA { get; set; } //Depois pega os outros dados apartir desse
 
         public TB_ALUNO TB_ALUNO

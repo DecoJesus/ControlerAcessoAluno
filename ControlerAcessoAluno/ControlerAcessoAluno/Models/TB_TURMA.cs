@@ -26,6 +26,7 @@ namespace ControlerAcessoAluno.Models
         public System.TimeSpan HORA_ENTRADA { get; set; }
         public System.TimeSpan HORA_SAIDA { get; set; }
         public Nullable<int> COD_CURSO { get; set; }
+        public string NOME_TURMA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_ALUNO_TURMA> TB_ALUNO_TURMA { get; set; }

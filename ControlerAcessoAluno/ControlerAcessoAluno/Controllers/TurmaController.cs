@@ -48,7 +48,7 @@ namespace ControlerAcessoAluno.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "COD_TURMA,SERIE,PERIODO,HORA_ENTRADA,HORA_SAIDA,COD_CURSO")] TB_TURMA tB_TURMA)
+        public ActionResult Create([Bind(Include = "COD_TURMA,SERIE,PERIODO,HORA_ENTRADA,HORA_SAIDA,COD_CURSO, NOME_TURMA")] TB_TURMA tB_TURMA)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace ControlerAcessoAluno.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "COD_TURMA,SERIE,PERIODO,HORA_ENTRADA,HORA_SAIDA,COD_CURSO")] TB_TURMA tB_TURMA)
+        public ActionResult Edit([Bind(Include = "COD_TURMA,SERIE,PERIODO,HORA_ENTRADA,HORA_SAIDA,COD_CURSO,NOME_TURMA")] TB_TURMA tB_TURMA)
         {
             if (ModelState.IsValid)
             {

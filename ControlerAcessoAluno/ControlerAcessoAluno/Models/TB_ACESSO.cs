@@ -11,10 +11,15 @@ namespace ControlerAcessoAluno.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class TB_ACESSO
     {
+        [Key]
         public int COD_ACESSO { get; set; }
+
+        [DataType(DataType.Date)] //Com esse formato eu não precisarei digitar a data apena escolho a data em um calendário e com essa formatação também não pegaremos a hora somente a data
         public string DATA { get; set; }
         public System.TimeSpan HORA_ENTRADA { get; set; }
         public System.TimeSpan HORA_SAIDA { get; set; }

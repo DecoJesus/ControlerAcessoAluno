@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CONTROLEACESSOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CONTROLEACESSOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TB_ACESSO">
           <Key>
             <PropertyRef Name="COD_ACESSO" />
@@ -24,6 +24,7 @@
           <Property Name="RM" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="DATA_NASCIMENTO" Type="date" Nullable="false" />
           <Property Name="SEXO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="SENHA" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="TB_ALUNO_TURMA">
           <Key>
@@ -76,6 +77,7 @@
           <Property Name="HORA_ENTRADA" Type="time" Precision="7" Nullable="false" />
           <Property Name="HORA_SAIDA" Type="time" Precision="7" Nullable="false" />
           <Property Name="COD_CURSO" Type="int" />
+          <Property Name="NOME_TURMA" Type="varchar" MaxLength="70" />
         </EntityType>
         <EntityType Name="TB_USUARIO">
           <Key>
@@ -196,8 +198,7 @@
             <End Role="TB_ALUNO_TURMA" EntitySet="TB_ALUNO_TURMA" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CONTROLEACESSOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -210,20 +211,7 @@
           <Property Name="HORA_ENTRADA" Type="Time" Nullable="false" Precision="7" />
           <Property Name="HORA_SAIDA" Type="Time" Nullable="false" Precision="7" />
           <Property Name="COD_ALUNO" Type="Int32" />
-          <NavigationProperty Name="TB_ALUNO" Relationship="Self.FK_ALUNO" FromRole="TB_ACESSO" ToRole="TB_ALUNO" />
-        </EntityType>
-        <EntityType Name="TB_ALUNO">
-          <Key>
-            <PropertyRef Name="COD_ALUNO" />
-          </Key>
-          <Property Name="COD_ALUNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOME" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DATA_NASCIMENTO" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="SEXO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TB_ACESSO" Relationship="Self.FK_ALUNO" FromRole="TB_ALUNO" ToRole="TB_ACESSO" />
-          <NavigationProperty Name="TB_AUTORIZACAO" Relationship="Self.FK_ALUNO2" FromRole="TB_ALUNO" ToRole="TB_AUTORIZACAO" />
-          <NavigationProperty Name="TB_ALUNO_TURMA" Relationship="Self.FK_ALUNO3" FromRole="TB_ALUNO" ToRole="TB_ALUNO_TURMA" />
+          <NavigationProperty Name="TB_ALUNO" Relationship="CONTROLEACESSOModel.FK_ALUNO" FromRole="TB_ACESSO" ToRole="TB_ALUNO" />
         </EntityType>
         <EntityType Name="TB_ALUNO_TURMA">
           <Key>
@@ -236,8 +224,8 @@
           <Property Name="COD_TURMA" Type="Int32" Nullable="false" />
           <Property Name="ANO" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="SEMESTRE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TB_ALUNO" Relationship="Self.FK_ALUNO3" FromRole="TB_ALUNO_TURMA" ToRole="TB_ALUNO" />
-          <NavigationProperty Name="TB_TURMA" Relationship="Self.FK_TURMA" FromRole="TB_ALUNO_TURMA" ToRole="TB_TURMA" />
+          <NavigationProperty Name="TB_ALUNO" Relationship="CONTROLEACESSOModel.FK_ALUNO3" FromRole="TB_ALUNO_TURMA" ToRole="TB_ALUNO" />
+          <NavigationProperty Name="TB_TURMA" Relationship="CONTROLEACESSOModel.FK_TURMA" FromRole="TB_ALUNO_TURMA" ToRole="TB_TURMA" />
         </EntityType>
         <EntityType Name="TB_AUTORIZACAO">
           <Key>
@@ -253,7 +241,7 @@
           <Property Name="VIGENCIA_FIM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MOTIVO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="COD_ALUNO" Type="Int32" />
-          <NavigationProperty Name="TB_ALUNO" Relationship="Self.FK_ALUNO2" FromRole="TB_AUTORIZACAO" ToRole="TB_ALUNO" />
+          <NavigationProperty Name="TB_ALUNO" Relationship="CONTROLEACESSOModel.FK_ALUNO2" FromRole="TB_AUTORIZACAO" ToRole="TB_ALUNO" />
         </EntityType>
         <EntityType Name="TB_CARGO">
           <Key>
@@ -269,20 +257,7 @@
           </Key>
           <Property Name="COD_CURSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOME_CURSO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TB_TURMA" Relationship="Self.FK_CURSO" FromRole="TB_CURSO" ToRole="TB_TURMA" />
-        </EntityType>
-        <EntityType Name="TB_TURMA">
-          <Key>
-            <PropertyRef Name="COD_TURMA" />
-          </Key>
-          <Property Name="COD_TURMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SERIE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PERIODO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="HORA_ENTRADA" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="HORA_SAIDA" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="COD_CURSO" Type="Int32" />
-          <NavigationProperty Name="TB_ALUNO_TURMA" Relationship="Self.FK_TURMA" FromRole="TB_TURMA" ToRole="TB_ALUNO_TURMA" />
-          <NavigationProperty Name="TB_CURSO" Relationship="Self.FK_CURSO" FromRole="TB_TURMA" ToRole="TB_CURSO" />
+          <NavigationProperty Name="TB_TURMA" Relationship="CONTROLEACESSOModel.FK_CURSO" FromRole="TB_CURSO" ToRole="TB_TURMA" />
         </EntityType>
         <EntityType Name="TB_USUARIO">
           <Key>
@@ -298,54 +273,6 @@
           <Property Name="ATIVO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="TB_CARGO" Relationship="Self.FK_CARGO" FromRole="TB_USUARIO" ToRole="TB_CARGO" />
         </EntityType>
-        <Association Name="FK_ALUNO">
-          <End Role="TB_ALUNO" Type="Self.TB_ALUNO" Multiplicity="0..1" />
-          <End Role="TB_ACESSO" Type="Self.TB_ACESSO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_ALUNO">
-              <PropertyRef Name="COD_ALUNO" />
-            </Principal>
-            <Dependent Role="TB_ACESSO">
-              <PropertyRef Name="COD_ALUNO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ALUNO2">
-          <End Role="TB_ALUNO" Type="Self.TB_ALUNO" Multiplicity="0..1" />
-          <End Role="TB_AUTORIZACAO" Type="Self.TB_AUTORIZACAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_ALUNO">
-              <PropertyRef Name="COD_ALUNO" />
-            </Principal>
-            <Dependent Role="TB_AUTORIZACAO">
-              <PropertyRef Name="COD_ALUNO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ALUNO3">
-          <End Role="TB_ALUNO" Type="Self.TB_ALUNO" Multiplicity="1" />
-          <End Role="TB_ALUNO_TURMA" Type="Self.TB_ALUNO_TURMA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_ALUNO">
-              <PropertyRef Name="COD_ALUNO" />
-            </Principal>
-            <Dependent Role="TB_ALUNO_TURMA">
-              <PropertyRef Name="COD_ALUNO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TURMA">
-          <End Role="TB_TURMA" Type="Self.TB_TURMA" Multiplicity="1" />
-          <End Role="TB_ALUNO_TURMA" Type="Self.TB_ALUNO_TURMA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_TURMA">
-              <PropertyRef Name="COD_TURMA" />
-            </Principal>
-            <Dependent Role="TB_ALUNO_TURMA">
-              <PropertyRef Name="COD_TURMA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CARGO">
           <End Role="TB_CARGO" Type="Self.TB_CARGO" Multiplicity="0..1" />
           <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
@@ -358,9 +285,119 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="CONTROLEACESSOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_ACESSO" EntityType="Self.TB_ACESSO" />
+          <EntitySet Name="TB_ALUNO_TURMA" EntityType="Self.TB_ALUNO_TURMA" />
+          <EntitySet Name="TB_AUTORIZACAO" EntityType="Self.TB_AUTORIZACAO" />
+          <EntitySet Name="TB_CARGO" EntityType="Self.TB_CARGO" />
+          <EntitySet Name="TB_CURSO" EntityType="Self.TB_CURSO" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" />
+          <AssociationSet Name="FK_CARGO" Association="Self.FK_CARGO">
+            <End Role="TB_CARGO" EntitySet="TB_CARGO" />
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+          </AssociationSet>
+          <EntitySet Name="TB_ALUNO" EntityType="CONTROLEACESSOModel.TB_ALUNO" />
+          <EntitySet Name="TB_TURMA" EntityType="CONTROLEACESSOModel.TB_TURMA" />
+          <AssociationSet Name="FK_ALUNO" Association="CONTROLEACESSOModel.FK_ALUNO">
+            <End Role="TB_ALUNO" EntitySet="TB_ALUNO" />
+            <End Role="TB_ACESSO" EntitySet="TB_ACESSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO2" Association="CONTROLEACESSOModel.FK_ALUNO2">
+            <End Role="TB_ALUNO" EntitySet="TB_ALUNO" />
+            <End Role="TB_AUTORIZACAO" EntitySet="TB_AUTORIZACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO3" Association="CONTROLEACESSOModel.FK_ALUNO3">
+            <End Role="TB_ALUNO" EntitySet="TB_ALUNO" />
+            <End Role="TB_ALUNO_TURMA" EntitySet="TB_ALUNO_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA" Association="CONTROLEACESSOModel.FK_TURMA">
+            <End Role="TB_TURMA" EntitySet="TB_TURMA" />
+            <End Role="TB_ALUNO_TURMA" EntitySet="TB_ALUNO_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CURSO" Association="CONTROLEACESSOModel.FK_CURSO">
+            <End Role="TB_CURSO" EntitySet="TB_CURSO" />
+            <End Role="TB_TURMA" EntitySet="TB_TURMA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TB_ALUNO">
+          <Key>
+            <PropertyRef Name="COD_ALUNO" />
+          </Key>
+          <Property Name="COD_ALUNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="RM" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_NASCIMENTO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SEXO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="SENHA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_ACESSO" Relationship="CONTROLEACESSOModel.FK_ALUNO" FromRole="TB_ALUNO" ToRole="TB_ACESSO" />
+          <NavigationProperty Name="TB_AUTORIZACAO" Relationship="CONTROLEACESSOModel.FK_ALUNO2" FromRole="TB_ALUNO" ToRole="TB_AUTORIZACAO" />
+          <NavigationProperty Name="TB_ALUNO_TURMA" Relationship="CONTROLEACESSOModel.FK_ALUNO3" FromRole="TB_ALUNO" ToRole="TB_ALUNO_TURMA" />
+        </EntityType>
+        <EntityType Name="TB_TURMA">
+          <Key>
+            <PropertyRef Name="COD_TURMA" />
+          </Key>
+          <Property Name="COD_TURMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SERIE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PERIODO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HORA_ENTRADA" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="HORA_SAIDA" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="COD_CURSO" Type="Int32" />
+          <Property Name="NOME_TURMA" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_ALUNO_TURMA" Relationship="CONTROLEACESSOModel.FK_TURMA" FromRole="TB_TURMA" ToRole="TB_ALUNO_TURMA" />
+          <NavigationProperty Name="TB_CURSO" Relationship="CONTROLEACESSOModel.FK_CURSO" FromRole="TB_TURMA" ToRole="TB_CURSO" />
+        </EntityType>
+        <Association Name="FK_ALUNO">
+          <End Type="CONTROLEACESSOModel.TB_ALUNO" Role="TB_ALUNO" Multiplicity="0..1" />
+          <End Type="CONTROLEACESSOModel.TB_ACESSO" Role="TB_ACESSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ALUNO">
+              <PropertyRef Name="COD_ALUNO" />
+            </Principal>
+            <Dependent Role="TB_ACESSO">
+              <PropertyRef Name="COD_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO2">
+          <End Type="CONTROLEACESSOModel.TB_ALUNO" Role="TB_ALUNO" Multiplicity="0..1" />
+          <End Type="CONTROLEACESSOModel.TB_AUTORIZACAO" Role="TB_AUTORIZACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ALUNO">
+              <PropertyRef Name="COD_ALUNO" />
+            </Principal>
+            <Dependent Role="TB_AUTORIZACAO">
+              <PropertyRef Name="COD_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO3">
+          <End Type="CONTROLEACESSOModel.TB_ALUNO" Role="TB_ALUNO" Multiplicity="1" />
+          <End Type="CONTROLEACESSOModel.TB_ALUNO_TURMA" Role="TB_ALUNO_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ALUNO">
+              <PropertyRef Name="COD_ALUNO" />
+            </Principal>
+            <Dependent Role="TB_ALUNO_TURMA">
+              <PropertyRef Name="COD_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA">
+          <End Type="CONTROLEACESSOModel.TB_TURMA" Role="TB_TURMA" Multiplicity="1" />
+          <End Type="CONTROLEACESSOModel.TB_ALUNO_TURMA" Role="TB_ALUNO_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TURMA">
+              <PropertyRef Name="COD_TURMA" />
+            </Principal>
+            <Dependent Role="TB_ALUNO_TURMA">
+              <PropertyRef Name="COD_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CURSO">
-          <End Role="TB_CURSO" Type="Self.TB_CURSO" Multiplicity="0..1" />
-          <End Role="TB_TURMA" Type="Self.TB_TURMA" Multiplicity="*" />
+          <End Type="CONTROLEACESSOModel.TB_CURSO" Role="TB_CURSO" Multiplicity="0..1" />
+          <End Type="CONTROLEACESSOModel.TB_TURMA" Role="TB_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TB_CURSO">
               <PropertyRef Name="COD_CURSO" />
@@ -370,40 +407,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CONTROLEACESSOEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TB_ACESSO" EntityType="Self.TB_ACESSO" />
-          <EntitySet Name="TB_ALUNO" EntityType="Self.TB_ALUNO" />
-          <EntitySet Name="TB_ALUNO_TURMA" EntityType="Self.TB_ALUNO_TURMA" />
-          <EntitySet Name="TB_AUTORIZACAO" EntityType="Self.TB_AUTORIZACAO" />
-          <EntitySet Name="TB_CARGO" EntityType="Self.TB_CARGO" />
-          <EntitySet Name="TB_CURSO" EntityType="Self.TB_CURSO" />
-          <EntitySet Name="TB_TURMA" EntityType="Self.TB_TURMA" />
-          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" />
-          <AssociationSet Name="FK_ALUNO" Association="Self.FK_ALUNO">
-            <End Role="TB_ALUNO" EntitySet="TB_ALUNO" />
-            <End Role="TB_ACESSO" EntitySet="TB_ACESSO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ALUNO2" Association="Self.FK_ALUNO2">
-            <End Role="TB_ALUNO" EntitySet="TB_ALUNO" />
-            <End Role="TB_AUTORIZACAO" EntitySet="TB_AUTORIZACAO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ALUNO3" Association="Self.FK_ALUNO3">
-            <End Role="TB_ALUNO" EntitySet="TB_ALUNO" />
-            <End Role="TB_ALUNO_TURMA" EntitySet="TB_ALUNO_TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TURMA" Association="Self.FK_TURMA">
-            <End Role="TB_TURMA" EntitySet="TB_TURMA" />
-            <End Role="TB_ALUNO_TURMA" EntitySet="TB_ALUNO_TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CARGO" Association="Self.FK_CARGO">
-            <End Role="TB_CARGO" EntitySet="TB_CARGO" />
-            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CURSO" Association="Self.FK_CURSO">
-            <End Role="TB_CURSO" EntitySet="TB_CURSO" />
-            <End Role="TB_TURMA" EntitySet="TB_TURMA" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -418,17 +421,6 @@
                 <ScalarProperty Name="HORA_ENTRADA" ColumnName="HORA_ENTRADA" />
                 <ScalarProperty Name="HORA_SAIDA" ColumnName="HORA_SAIDA" />
                 <ScalarProperty Name="COD_ALUNO" ColumnName="COD_ALUNO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_ALUNO">
-            <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_ALUNO">
-              <MappingFragment StoreEntitySet="TB_ALUNO">
-                <ScalarProperty Name="COD_ALUNO" ColumnName="COD_ALUNO" />
-                <ScalarProperty Name="NOME" ColumnName="NOME" />
-                <ScalarProperty Name="RM" ColumnName="RM" />
-                <ScalarProperty Name="DATA_NASCIMENTO" ColumnName="DATA_NASCIMENTO" />
-                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -474,18 +466,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TB_TURMA">
-            <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_TURMA">
-              <MappingFragment StoreEntitySet="TB_TURMA">
-                <ScalarProperty Name="COD_TURMA" ColumnName="COD_TURMA" />
-                <ScalarProperty Name="SERIE" ColumnName="SERIE" />
-                <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
-                <ScalarProperty Name="HORA_ENTRADA" ColumnName="HORA_ENTRADA" />
-                <ScalarProperty Name="HORA_SAIDA" ColumnName="HORA_SAIDA" />
-                <ScalarProperty Name="COD_CURSO" ColumnName="COD_CURSO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TB_USUARIO">
             <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_USUARIO">
               <MappingFragment StoreEntitySet="TB_USUARIO">
@@ -497,6 +477,31 @@
                 <ScalarProperty Name="COD_CARGO" ColumnName="COD_CARGO" />
                 <ScalarProperty Name="PERFIL" ColumnName="PERFIL" />
                 <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ALUNO">
+            <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_ALUNO">
+              <MappingFragment StoreEntitySet="TB_ALUNO">
+                <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="DATA_NASCIMENTO" ColumnName="DATA_NASCIMENTO" />
+                <ScalarProperty Name="RM" ColumnName="RM" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="COD_ALUNO" ColumnName="COD_ALUNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TURMA">
+            <EntityTypeMapping TypeName="CONTROLEACESSOModel.TB_TURMA">
+              <MappingFragment StoreEntitySet="TB_TURMA">
+                <ScalarProperty Name="NOME_TURMA" ColumnName="NOME_TURMA" />
+                <ScalarProperty Name="COD_CURSO" ColumnName="COD_CURSO" />
+                <ScalarProperty Name="HORA_SAIDA" ColumnName="HORA_SAIDA" />
+                <ScalarProperty Name="HORA_ENTRADA" ColumnName="HORA_ENTRADA" />
+                <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+                <ScalarProperty Name="SERIE" ColumnName="SERIE" />
+                <ScalarProperty Name="COD_TURMA" ColumnName="COD_TURMA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
