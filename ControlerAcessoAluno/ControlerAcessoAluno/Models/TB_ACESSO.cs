@@ -21,7 +21,9 @@ namespace ControlerAcessoAluno.Models
 
         [DataType(DataType.Date)] //Com esse formato eu não precisarei digitar a data apena escolho a data em um calendário e com essa formatação também não pegaremos a hora somente a data
         public string DATA { get; set; }
+        [DataType(DataType.Time)] //Vai aparecer a opção pra me pode escolher a hora
         public System.TimeSpan HORA_ENTRADA { get; set; }
+        [DataType(DataType.Time)]//Vai aparecer a opção pra me pode escolher a hora
         public System.TimeSpan HORA_SAIDA { get; set; }
         public Nullable<int> COD_ALUNO { get; set; }
     

@@ -11,7 +11,9 @@ namespace ControlerAcessoAluno.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class TB_ALUNO_TURMA
     {
         public int COD_ALUNO { get; set; }

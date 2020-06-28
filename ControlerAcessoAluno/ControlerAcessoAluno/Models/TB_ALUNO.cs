@@ -11,6 +11,8 @@ namespace ControlerAcessoAluno.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class TB_ALUNO
     {
@@ -25,6 +27,7 @@ namespace ControlerAcessoAluno.Models
         public int COD_ALUNO { get; set; }
         public string NOME { get; set; }
         public string RM { get; set; }
+        [DataType(DataType.Date)] //Com esse formato eu não precisarei digitar a data apena escolho a data em um calendário e com essa formatação também não pegaremos a hora somente a data
         public System.DateTime DATA_NASCIMENTO { get; set; }
         public string SEXO { get; set; }
         public string SENHA { get; set; }

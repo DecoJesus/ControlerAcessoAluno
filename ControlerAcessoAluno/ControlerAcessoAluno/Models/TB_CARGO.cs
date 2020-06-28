@@ -11,6 +11,8 @@ namespace ControlerAcessoAluno.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class TB_CARGO
     {
@@ -19,7 +21,7 @@ namespace ControlerAcessoAluno.Models
         {
             this.TB_USUARIO = new HashSet<TB_USUARIO>();
         }
-    
+        [Key]
         public int COD_CARGO { get; set; }
         public string CARGO { get; set; }
     
