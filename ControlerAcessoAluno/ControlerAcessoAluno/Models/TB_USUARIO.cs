@@ -11,11 +11,9 @@ namespace ControlerAcessoAluno.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+    
     public partial class TB_USUARIO
     {
-        [Key]
         public int COD_USUARIO { get; set; }
         public string NOME { get; set; }
         public string SOBRENOME { get; set; }

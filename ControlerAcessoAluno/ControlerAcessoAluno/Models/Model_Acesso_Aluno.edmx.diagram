@@ -5,19 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8145e431031f4a4eac004d6cedc9614a" Name="Diagram1">
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_ACESSO" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_ALUNO_TURMA" Width="1.5" PointX="3.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_AUTORIZACAO" Width="1.5" PointX="0.5" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_CARGO" Width="1.5" PointX="5.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_CURSO" Width="1.5" PointX="9" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_USUARIO" Width="1.5" PointX="8" PointY="0.5" IsExpanded="true" />
-        <AssociationConnector Association="CONTROLEACESSOModel.FK_CARGO" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_ALUNO" Width="1.5" PointX="0.5" PointY="0.5" />
-        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_TURMA" Width="1.5" PointX="5.625" PointY="3.375" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_ACESSO" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_ALUNO" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_ALUNO_TURMA" Width="1.5" PointX="3" PointY="5.625" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_AUTORIZACAO" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_CARGO" Width="1.5" PointX="5.75" PointY="1.5" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_CURSO" Width="1.5" PointX="1.5" PointY="13" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_TURMA" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="CONTROLEACESSOModel.TB_USUARIO" Width="1.5" PointX="8" PointY="1" />
         <AssociationConnector Association="CONTROLEACESSOModel.FK_ALUNO" />
         <AssociationConnector Association="CONTROLEACESSOModel.FK_ALUNO2" />
         <AssociationConnector Association="CONTROLEACESSOModel.FK_ALUNO3" />
         <AssociationConnector Association="CONTROLEACESSOModel.FK_TURMA" />
+        <AssociationConnector Association="CONTROLEACESSOModel.FK_CARGO" />
         <AssociationConnector Association="CONTROLEACESSOModel.FK_CURSO" />
       </Diagram>
     </edmx:Diagrams>

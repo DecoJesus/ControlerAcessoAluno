@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2></h2>
 
 <p>
     @Html.ActionLink("Criar nova Cadastro", "Create")
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.TB_CARGO.CARGO)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.COD_USUARIO }) |
-            @Html.ActionLink("Details", "Details", new { id=item.COD_USUARIO }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.COD_USUARIO })
+            @Html.ActionLink("EDITAR", "Edit", new { id=item.COD_USUARIO }) |
+            @Html.ActionLink("DETALHE", "Details", new { id=item.COD_USUARIO }) |
+            @Html.ActionLink("REMOVER", "Delete", new { id=item.COD_USUARIO })
         </td>
     </tr>
 }

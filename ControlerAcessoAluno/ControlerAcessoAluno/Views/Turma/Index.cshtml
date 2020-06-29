@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2></h2>
 
 <p>
     @Html.ActionLink("Criar uma Nova Turma", "Create")
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.TB_CURSO.NOME_CURSO)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.COD_TURMA }) |
-            @Html.ActionLink("Details", "Details", new { id=item.COD_TURMA }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.COD_TURMA })
+            @Html.ActionLink("EDITAR", "Edit", new { id=item.COD_TURMA }) |
+            @Html.ActionLink("DETALHE", "Details", new { id=item.COD_TURMA }) |
+            @Html.ActionLink("REMOVER", "Delete", new { id=item.COD_TURMA })
         </td>
     </tr>
 }

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ControlerAcessoAluno.Models.TB_CURSO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+
+<p>
+    @Html.ActionLink("CRIAR NOVO CURSO", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOME_CURSO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOME_CURSO)
+        </td>
+        <td>
+            @Html.ActionLink("EDITAR", "Edit", new { id=item.COD_CURSO }) |
+            @Html.ActionLink("DETALHE", "Details", new { id=item.COD_CURSO }) |
+            @Html.ActionLink("REMOVER", "Delete", new { id=item.COD_CURSO })
+        </td>
+    </tr>
+}
+
+</table>

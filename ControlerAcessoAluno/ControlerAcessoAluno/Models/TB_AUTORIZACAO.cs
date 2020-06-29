@@ -11,18 +11,13 @@ namespace ControlerAcessoAluno.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class TB_AUTORIZACAO
     {
-        [Key]
         public int COD_AUTORIZACAO { get; set; }
         public string NOME_RESPONSAVEL { get; set; }
         public string RG { get; set; }
-        [DataType(DataType.Date)] //Com esse formato eu não precisarei digitar a data apena escolho a data em um calendário e com essa formatação também não pegaremos a hora somente a data
         public System.DateTime DATA { get; set; }
-        [DataType(DataType.Time)] //Vai aparecer a opção pra me pode escolher a hora
         public System.TimeSpan HORA { get; set; }
         public string TIPO_AUTORIZACAO { get; set; }
         public string VIGENCIA_INICIO { get; set; }

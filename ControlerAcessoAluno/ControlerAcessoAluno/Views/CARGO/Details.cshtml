@@ -1,0 +1,27 @@
+﻿@model ControlerAcessoAluno.Models.TB_CARGO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_CARGO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CARGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CARGO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COD_CARGO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

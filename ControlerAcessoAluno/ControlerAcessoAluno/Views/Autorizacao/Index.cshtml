@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2></h2>
 
 <p>
     @Html.ActionLink("Criar uma Nova Autorização", "Create")
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.TB_ALUNO.NOME)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.COD_AUTORIZACAO }) |
-            @Html.ActionLink("Details", "Details", new { id=item.COD_AUTORIZACAO }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.COD_AUTORIZACAO })
+            @Html.ActionLink("EDITAR", "Edit", new { id=item.COD_AUTORIZACAO }) |
+            @Html.ActionLink("DETALHE", "Details", new { id=item.COD_AUTORIZACAO }) |
+            @Html.ActionLink("REMOVER", "Delete", new { id=item.COD_AUTORIZACAO })
         </td>
     </tr>
 }

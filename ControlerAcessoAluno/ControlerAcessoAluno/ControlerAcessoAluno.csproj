@@ -132,6 +132,9 @@
     <Compile Include="Controllers\AlunoController.cs" />
     <Compile Include="Controllers\AutorizacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PainelAdminController.cs" />
+    <Compile Include="Controllers\TB_CARGOController.cs" />
+    <Compile Include="Controllers\TB_CURSOController.cs" />
     <Compile Include="Controllers\TurmaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,7 +191,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagens\13721.jpg" />
     <Content Include="Imagens\catracas.jpg" />
+    <Content Include="Imagens\soma-area-administrativa-1080x631.jpg" />
+    <Content Include="Imagens\SSSSSS3721.jpg" />
     <Content Include="Models\Model_Acesso_Aluno.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model_Acesso_Aluno.Context.cs</LastGenOutput>
@@ -261,6 +267,23 @@
     <Content Include="Views\Acesso\Details.cshtml" />
     <Content Include="Views\Acesso\Edit.cshtml" />
     <Content Include="Views\Acesso\Index.cshtml" />
+    <Content Include="Views\Shared\admin.cshtml" />
+    <Content Include="Views\PainelAdmin\Index.cshtml" />
+    <Content Include="Views\CARGO\Create.cshtml" />
+    <Content Include="Views\CARGO\Delete.cshtml" />
+    <Content Include="Views\CARGO\Details.cshtml" />
+    <Content Include="Views\CARGO\Edit.cshtml" />
+    <Content Include="Views\CARGO\Index.cshtml" />
+    <Content Include="Views\TB_CARGO\Create.cshtml" />
+    <Content Include="Views\TB_CARGO\Delete.cshtml" />
+    <Content Include="Views\TB_CARGO\Details.cshtml" />
+    <Content Include="Views\TB_CARGO\Edit.cshtml" />
+    <Content Include="Views\TB_CARGO\Index.cshtml" />
+    <Content Include="Views\TB_CURSO\Create.cshtml" />
+    <Content Include="Views\TB_CURSO\Delete.cshtml" />
+    <Content Include="Views\TB_CURSO\Details.cshtml" />
+    <Content Include="Views\TB_CURSO\Edit.cshtml" />
+    <Content Include="Views\TB_CURSO\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
